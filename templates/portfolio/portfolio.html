@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <title>Photography Portfolio</title>
+</head>
+<body>
+    <header>
+        <h1>Photography Portfolio</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Categories</h2>
+            <ul>
+                {% for category in categories %}
+                    <li>{{ category.name }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section>
+            <h2>Photos</h2>
+            <div class="photo-grid">
+                {% for photo in photos %}
+                    <div class="photo-card">
+                        <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                        <h3>{{ photo.title }}</h3>
+                        <p>{{ photo.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 katman Photography Portfolio</p>
+    </footer>
+</body>
+</html>
