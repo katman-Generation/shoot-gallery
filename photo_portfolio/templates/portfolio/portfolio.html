@@ -15,27 +15,32 @@
     <main>
         <section>
             <h2>Categories</h2>
-            <ul>
+            <div class="category-preview">
                 {% for category in categories %}
-                    <li>{{ category.name }}</li>
+                    <div class="category-card">
+                        <a href="{% url 'category_photos' category.id %}">
+                            <img src="{{ category.photo_set.first.image.url }}" alt="{{ category.name }}">
+                            <h3>{{ category.name }}</h3>
+                        </a>
+                    </div>
                 {% endfor %}
-            </ul>
+            </div>
         </section>
         <section>
-            <h2>Photos</h2>
+            <h2>Latest Photos</h2>
             <div class="photo-grid">
-                {% for photo in photos %}
+                {% for photo in photos|slice:":8" %}
                     <div class="photo-card">
                         <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
-                        <h3>{{ photo.title }}</h3>
-                        <p>{{ photo.description }}</p>
+                        <h4>{{ photo.title }}</h4>
                     </div>
                 {% endfor %}
             </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 katman Photography Portfolio</p>
+        <p>&copy; 2024 Photography Portfolio</p>
     </footer>
 </body>
 </html>
+

@@ -28,7 +28,12 @@ SECRET_KEY = 'django-insecure-@w=wre9_u-ys*^br0n7zoxc4i&uckjpt2&b&v7mh0w4piwqq)+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shootportfolio.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = [
+    'shootportfolio-c44ed8048a96.herokuapp.com',
+    'bezel.pythonanywhere.com',
+    'localhost',
+    '127.0.0.1'
+]
 
 
 # Application definition
