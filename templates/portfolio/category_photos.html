@@ -45,16 +45,12 @@
 </head>
 <body>
     <header>
-        {% with category.photo_set.first as photo %}
-            {% if photo and photo.image.url %}
-                <h1>{{ category.name }}</h1>
-            {% endif %}
-        {% endwith %}
+        <h1>{{ category.name }}</h1>
     </header>
 
     <main>
         <section>
-            <h2>Photos in {{ category.name }}</h2>
+            <h2>Photos in </h2>
             <div class="photo-grid">
                 {% for photo in photos %}
                     <div class="photo-card">

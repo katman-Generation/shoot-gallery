@@ -16,14 +16,25 @@
         <section>
             <h2>Categories</h2>
             <div class="category-preview">
-                {% for category in categories %}
+                {% if category.photo_set %}
+                        {% for category in categories %}
+                            <div class="category-card">
+                                <a href="{% url 'category_photos' category.id %}">
+                                    <img src="{{ category.photo_set.first.image.url }}" alt="{{ category.name }}">
+                                    <h3>{{ category.name }}</h3>
+                                </a>
+                            </div>
+                        {% endfor %}
+                {% endif %}
+
+                <!--{% for category in categories %}
                     <div class="category-card">
                         <a href="{% url 'category_photos' category.id %}">
                             <img src="{{ category.photo_set.first.image.url }}" alt="{{ category.name }}">
                             <h3>{{ category.name }}</h3>
                         </a>
                     </div>
-                {% endfor %}
+                {% endfor %}-->
             </div>
         </section>
         <section>
